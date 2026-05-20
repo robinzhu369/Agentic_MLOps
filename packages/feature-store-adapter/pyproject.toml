@@ -1,0 +1,22 @@
+[project]
+name = "agentic-mlops-feature-store-adapter"
+version = "0.1.0"
+description = "Feature Store Adapter: Feast integration"
+requires-python = ">=3.11"
+
+dependencies = [
+    "feast>=0.40",
+    "redis>=5.0",
+    "asyncpg>=0.29",
+    "agentic-mlops-shared",
+]
+
+[tool.uv.sources]
+agentic-mlops-shared = { workspace = true }
+
+[tool.hatch.build.targets.wheel]
+packages = ["feature_store_adapter"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

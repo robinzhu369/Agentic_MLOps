@@ -1,0 +1,22 @@
+[project]
+name = "agentic-mlops-rag-engine"
+version = "0.1.0"
+description = "RAG Engine: ingestion, embedding, retrieval, reranking"
+requires-python = ">=3.11"
+
+dependencies = [
+    "qdrant-client>=1.10",
+    "opensearch-py>=2.6",
+    "sentence-transformers>=3.0",
+    "agentic-mlops-shared",
+]
+
+[tool.uv.sources]
+agentic-mlops-shared = { workspace = true }
+
+[tool.hatch.build.targets.wheel]
+packages = ["rag_engine"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

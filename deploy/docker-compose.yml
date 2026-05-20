@@ -1,0 +1,91 @@
+version: "3.9"
+
+services:
+  # --- PostgreSQL (关系库 + pgvector + Feast offline store) ---
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: agentic-postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-agentic}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-agentic_dev}
+      POSTGRES_DB: ${POSTGRES_DB:-agentic_mlops}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init-scripts/postgres:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-agentic}"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  # --- Redis (缓存 + 短期记忆 + Feast online store + Celery broker) ---
+  redis:
+    image: redis:7-alpine
+    container_name: agentic-redis
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  # --- Qdrant (向量库) ---
+  qdrant:
+    image: qdrant/qdrant:v1.10.1
+    container_name: agentic-qdrant
+    ports:
+      - "${QDRANT_PORT:-6333}:6333"
+      - "6334:6334"
+    volumes:
+      - qdrant_data:/qdrant/storage
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:6333/healthz || exit 1"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  # --- OpenSearch (全文检索，中文分词) ---
+  opensearch:
+    image: opensearchproject/opensearch:2.15.0
+    container_name: agentic-opensearch
+    environment:
+      - discovery.type=single-node
+      - plugins.security.disabled=true
+      - OPENSEARCH_JAVA_OPTS=-Xms512m -Xmx512m
+    ports:
+      - "${OPENSEARCH_PORT:-9200}:9200"
+    volumes:
+      - opensearch_data:/usr/share/opensearch/data
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:9200/_cluster/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # --- Jupyter Kernel Gateway (代码执行) ---
+  jupyter:
+    image: jupyter/scipy-notebook:python-3.11
+    container_name: agentic-jupyter
+    command: >
+      jupyter kernelgateway
+      --KernelGatewayApp.ip=0.0.0.0
+      --KernelGatewayApp.port=8888
+      --KernelGatewayApp.api=kernel_gateway.jupyter_websocket
+    ports:
+      - "8888:8888"
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8888/api || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
+  redis_data:
+  qdrant_data:
+  opensearch_data:

@@ -1,0 +1,23 @@
+[project]
+name = "agentic-mlops-mcp-gateway"
+version = "0.1.0"
+description = "MCP Gateway: auth, RBAC, routing, audit, PII masking"
+requires-python = ">=3.11"
+
+dependencies = [
+    "fastapi>=0.110",
+    "uvicorn[standard]>=0.30",
+    "python-jose[cryptography]>=3.3",
+    "httpx>=0.27",
+    "agentic-mlops-shared",
+]
+
+[tool.uv.sources]
+agentic-mlops-shared = { workspace = true }
+
+[tool.hatch.build.targets.wheel]
+packages = ["mcp_gateway"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

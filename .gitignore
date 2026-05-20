@@ -1,0 +1,60 @@
+# Byte-compiled
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# uv
+.uv/
+uv.lock
+
+# Distribution
+dist/
+build/
+*.egg-info/
+
+# IDE
+.idea/
+.vscode/
+.claude/*.local.json
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Testing
+.coverage
+htmlcov/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Node
+node_modules/
+apps/web/.next/
+apps/web/out/
+
+# Docker
+deploy/volumes/
+
+# Data (large files)
+data/sample/*.csv
+data/sample/*.parquet
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Logs
+*.log
+logs/

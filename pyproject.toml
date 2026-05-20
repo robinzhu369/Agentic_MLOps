@@ -1,0 +1,72 @@
+[project]
+name = "agentic-mlops"
+version = "0.1.0"
+description = "Code-First Agentic MLOps Platform"
+requires-python = ">=3.11"
+readme = "README.md"
+license = {text = "MIT"}
+
+dependencies = [
+    "agentic-mlops-shared",
+    "agentic-mlops-agent-core",
+    "agentic-mlops-mcp-gateway",
+    "agentic-mlops-mcp-servers",
+    "agentic-mlops-rag-engine",
+    "agentic-mlops-feature-store-adapter",
+    "agentic-mlops-api",
+]
+
+[tool.uv.workspace]
+members = [
+    "packages/agent-core",
+    "packages/mcp-gateway",
+    "packages/mcp-servers",
+    "packages/rag-engine",
+    "packages/feature-store-adapter",
+    "packages/shared",
+    "apps/api",
+]
+
+[tool.uv.sources]
+agentic-mlops-shared = { workspace = true }
+agentic-mlops-agent-core = { workspace = true }
+agentic-mlops-mcp-gateway = { workspace = true }
+agentic-mlops-mcp-servers = { workspace = true }
+agentic-mlops-rag-engine = { workspace = true }
+agentic-mlops-feature-store-adapter = { workspace = true }
+agentic-mlops-api = { workspace = true }
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+    "pytest-cov>=5.0",
+    "ruff>=0.5",
+    "mypy>=1.10",
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+extend-exclude = ["scripts/hooks"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "UP", "B", "SIM"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["packages"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+
+[tool.pytest.ini_options]
+testpaths = ["packages", "tests"]
+asyncio_mode = "auto"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

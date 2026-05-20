@@ -1,0 +1,28 @@
+[project]
+name = "agentic-mlops-api"
+version = "0.1.0"
+description = "FastAPI backend: Agent, RAG, Skills routes"
+requires-python = ">=3.11"
+
+dependencies = [
+    "fastapi>=0.110",
+    "uvicorn[standard]>=0.30",
+    "sse-starlette>=2.0",
+    "agentic-mlops-agent-core",
+    "agentic-mlops-mcp-gateway",
+    "agentic-mlops-rag-engine",
+    "agentic-mlops-shared",
+]
+
+[tool.uv.sources]
+agentic-mlops-shared = { workspace = true }
+agentic-mlops-agent-core = { workspace = true }
+agentic-mlops-mcp-gateway = { workspace = true }
+agentic-mlops-rag-engine = { workspace = true }
+
+[tool.hatch.build.targets.wheel]
+packages = ["api_app"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
