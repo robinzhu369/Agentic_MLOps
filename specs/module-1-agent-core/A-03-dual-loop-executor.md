@@ -3,7 +3,7 @@ id: "A-03"
 module: "agent-core"
 title: "双循环执行（Outer + Inner Loop）"
 priority: P0
-status: draft
+status: done
 owner: ""
 dependencies: ["A-02", "A-04"]
 milestone: "W3"
@@ -17,12 +17,12 @@ milestone: "W3"
 
 ## 验收标准
 
-- [ ] AC-1: 外循环按 PlanStep.depends_on 拓扑顺序执行步骤，无依赖的步骤可并发执行（最大并发数可配置，默认 3）
-- [ ] AC-2: 内循环在单步失败时自动重试，最大重试次数为 3，重试间隔指数退避（1s, 2s, 4s）
-- [ ] AC-3: 单步连续失败超过重试上限后，外循环触发 Planner.replan()，最多重规划 2 次；重规划仍失败则整体任务标记为 FAILED
-- [ ] AC-4: 遇到 PlanStep.requires_confirm=True 的步骤时，外循环暂停并通过 SSE 推送 `event: confirm_required`，等待 `POST /api/v1/agent/sessions/{id}/confirm` 响应后继续
-- [ ] AC-5: 每个步骤执行结果（Observation）通过 SSE 推送 `event: observation`，包含 step_id、status、output 字段
-- [ ] AC-6: 任务整体状态（RUNNING/PAUSED/COMPLETED/FAILED）可通过会话查询接口获取
+- [x] AC-1: 外循环按 PlanStep.depends_on 拓扑顺序执行步骤，无依赖的步骤可并发执行（最大并发数可配置，默认 3）
+- [x] AC-2: 内循环在单步失败时自动重试，最大重试次数为 3，重试间隔指数退避（1s, 2s, 4s）
+- [x] AC-3: 单步连续失败超过重试上限后，外循环触发 Planner.replan()，最多重规划 2 次；重规划仍失败则整体任务标记为 FAILED
+- [x] AC-4: 遇到 PlanStep.requires_confirm=True 的步骤时，外循环暂停并通过 SSE 推送 `event: confirm_required`，等待 `POST /api/v1/agent/sessions/{id}/confirm` 响应后继续
+- [x] AC-5: 每个步骤执行结果（Observation）通过 SSE 推送 `event: observation`，包含 step_id、status、output 字段
+- [x] AC-6: 任务整体状态（RUNNING/PAUSED/COMPLETED/FAILED）可通过会话查询接口获取
 
 ## 接口定义
 

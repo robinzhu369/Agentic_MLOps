@@ -3,7 +3,7 @@ id: "R-04"
 module: "rag-engine"
 title: "向量检索（Qdrant）"
 priority: P0
-status: draft
+status: done
 owner: ""
 dependencies: ["R-03"]
 milestone: "W4"

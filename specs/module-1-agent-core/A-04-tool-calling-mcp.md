@@ -3,7 +3,7 @@ id: "A-04"
 module: "agent-core"
 title: "工具调用（通过 MCP）"
 priority: P0
-status: draft
+status: done
 owner: ""
 dependencies: ["G-01", "G-04"]
 milestone: "W3"

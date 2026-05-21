@@ -3,7 +3,7 @@ id: "R-01"
 module: "rag-engine"
 title: "文档接入（PDF/Markdown/Wiki）"
 priority: P0
-status: draft
+status: done
 owner: ""
 dependencies: []
 milestone: "W4"

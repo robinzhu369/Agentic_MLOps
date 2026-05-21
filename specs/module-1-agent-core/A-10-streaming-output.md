@@ -3,7 +3,7 @@ id: "A-10"
 module: "agent-core"
 title: "思考链可视化输出"
 priority: P0
-status: draft
+status: done
 owner: ""
 dependencies: ["A-03"]
 milestone: "W3"

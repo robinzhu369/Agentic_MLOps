@@ -3,7 +3,7 @@ id: "R-09"
 module: "rag-engine"
 title: "Context 注入 Agent"
 priority: P0
-status: draft
+status: done
 owner: ""
 dependencies: ["R-04", "A-02"]
 milestone: "W4"

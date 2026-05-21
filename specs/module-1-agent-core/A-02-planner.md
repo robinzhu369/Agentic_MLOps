@@ -3,7 +3,7 @@ id: "A-02"
 module: "agent-core"
 title: "多步任务规划（Planner）"
 priority: P0
-status: draft
+status: done
 owner: ""
 dependencies: ["A-01"]
 milestone: "W3"
@@ -17,11 +17,11 @@ milestone: "W3"
 
 ## 验收标准
 
-- [ ] AC-1: 给定 IntentResult，Planner 在 5 秒内输出包含至少 1 个 PlanStep 的有效 Plan 对象
-- [ ] AC-2: 每个 PlanStep 必须包含 step_id、tool_name、tool_args、depends_on、description 字段，且 tool_name 必须存在于当前 MCP Capability Manifest 中
-- [ ] AC-3: 对于需要人工确认的高风险步骤（如删除数据、部署到生产），PlanStep.requires_confirm 必须为 True
-- [ ] AC-4: 当 Skill Library（A-07）返回匹配 Skill 时，Planner 优先复用 Skill 步骤而非重新规划
-- [ ] AC-5: 规划结果通过 SSE 以 `event: plan` 类型推送给客户端（A-10）
+- [x] AC-1: 给定 IntentResult，Planner 在 5 秒内输出包含至少 1 个 PlanStep 的有效 Plan 对象
+- [x] AC-2: 每个 PlanStep 必须包含 step_id、tool_name、tool_args、depends_on、description 字段，且 tool_name 必须存在于当前 MCP Capability Manifest 中
+- [x] AC-3: 对于需要人工确认的高风险步骤（如删除数据、部署到生产），PlanStep.requires_confirm 必须为 True
+- [x] AC-4: 当 Skill Library（A-07）返回匹配 Skill 时，Planner 优先复用 Skill 步骤而非重新规划
+- [x] AC-5: 规划结果通过 SSE 以 `event: plan` 类型推送给客户端（A-10）
 
 ## 接口定义
 

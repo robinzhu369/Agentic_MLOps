@@ -8,6 +8,7 @@ dependencies = [
     "qdrant-client>=1.10",
     "opensearch-py>=2.6",
     "sentence-transformers>=3.0",
+    "pydantic-settings>=2.0",
     "agentic-mlops-shared",
 ]
 

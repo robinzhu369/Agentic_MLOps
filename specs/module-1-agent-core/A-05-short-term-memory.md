@@ -3,7 +3,7 @@ id: "A-05"
 module: "agent-core"
 title: "短期记忆（会话内）"
 priority: P0
-status: draft
+status: done
 owner: ""
 dependencies: []
 milestone: "W3"

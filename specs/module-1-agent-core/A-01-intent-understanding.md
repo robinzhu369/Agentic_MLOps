@@ -3,7 +3,7 @@ id: "A-01"
 module: "agent-core"
 title: "自然语言意图理解"
 priority: P0
-status: draft
+status: done
 owner: ""
 dependencies: []
 milestone: "W3"
@@ -17,11 +17,11 @@ milestone: "W3"
 
 ## 验收标准
 
-- [ ] AC-1: 给定标准 MLOps 指令（如"训练一个 XGBoost 模型，特征来自 feature_store.user_features，目标列 label"），系统能在 2 秒内返回包含 task_type、entities、constraints 字段的 IntentResult 对象
-- [ ] AC-2: 对歧义输入（缺少必要参数），系统返回 `clarification_needed=True` 并附带 `missing_fields` 列表，不进入规划阶段
-- [ ] AC-3: 意图置信度低于阈值（0.7）时，系统记录警告日志并触发二次确认流程
-- [ ] AC-4: 支持中英文混合输入，解析结果语言无关
-- [ ] AC-5: 单次解析 P99 延迟 ≤ 3 秒（不含网络传输）
+- [x] AC-1: 给定标准 MLOps 指令（如"训练一个 XGBoost 模型，特征来自 feature_store.user_features，目标列 label"），系统能在 2 秒内返回包含 task_type、entities、constraints 字段的 IntentResult 对象
+- [x] AC-2: 对歧义输入（缺少必要参数），系统返回 `clarification_needed=True` 并附带 `missing_fields` 列表，不进入规划阶段
+- [x] AC-3: 意图置信度低于阈值（0.7）时，系统记录警告日志并触发二次确认流程
+- [x] AC-4: 支持中英文混合输入，解析结果语言无关
+- [x] AC-5: 单次解析 P99 延迟 ≤ 3 秒（不含网络传输）
 
 ## 接口定义
 

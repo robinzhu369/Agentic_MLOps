@@ -6,16 +6,16 @@
 
 | ID | 标题 | 优先级 | 状态 | 里程碑 | Owner |
 | --- | --- | --- | --- | --- | --- |
-| A-01 | 自然语言意图理解 | P0 | draft | W3 | |
-| A-02 | 多步任务规划（Planner） | P0 | draft | W3 | |
-| A-03 | 双循环执行（Outer + Inner Loop） | P0 | draft | W3 | |
-| A-04 | 工具调用（通过 MCP） | P0 | draft | W3 | |
-| A-05 | 短期记忆（会话内） | P0 | draft | W3 | |
+| A-01 | 自然语言意图理解 | P0 | done | W3 | |
+| A-02 | 多步任务规划（Planner） | P0 | done | W3 | |
+| A-03 | 双循环执行（Outer + Inner Loop） | P0 | done | W3 | |
+| A-04 | 工具调用（通过 MCP） | P0 | done | W3 | |
+| A-05 | 短期记忆（会话内） | P0 | done | W3 | |
 | A-06 | 长期记忆（向量检索） | P0 | draft | W7 | |
 | A-07 | Skill Library 检索 | P0 | draft | W7 | |
 | A-08 | Self-Critique 评估 | P1 | draft | W7 | |
 | A-09 | Skill 自动抽象（Learning Loop） | P1 | draft | W7 | |
-| A-10 | 思考链可视化输出 | P0 | draft | W3 | |
+| A-10 | 思考链可视化输出 | P0 | done | W3 | |
 
 ## Module 2: MCP Gateway (`packages/mcp-gateway/`) — W2/W5
 
@@ -30,22 +30,22 @@
 | G-07 | dry_run 支持 | P1 | draft | W5 | |
 | G-08 | PII 脱敏 | P0 | draft | W2 | |
 | MCP-S1 | mcp-jupyter Server | P0 | draft | W2 | |
-| MCP-S2 | mcp-feature-store Server | P0 | draft | W5 | |
-| MCP-S3 | mcp-data-catalog Server | P0 | draft | W5 | |
+| MCP-S2 | mcp-feature-store Server | P0 | done | W5 | |
+| MCP-S3 | mcp-data-catalog Server | P0 | done | W5 | |
 
 ## Module 3: RAG Engine (`packages/rag-engine/`) — W4
 
 | ID | 标题 | 优先级 | 状态 | 里程碑 | Owner |
 | --- | --- | --- | --- | --- | --- |
-| R-01 | 文档接入（PDF/Markdown/Wiki） | P0 | draft | W4 | |
-| R-02 | Chunk 切分（章节+滑窗） | P0 | draft | W4 | |
-| R-03 | Embedding 生成（bge-small-zh） | P0 | draft | W4 | |
-| R-04 | 向量检索（Qdrant） | P0 | draft | W4 | |
+| R-01 | 文档接入（PDF/Markdown/Wiki） | P0 | done | W4 | |
+| R-02 | Chunk 切分（章节+滑窗） | P0 | done | W4 | |
+| R-03 | Embedding 生成（bge-small-zh） | P0 | done | W4 | |
+| R-04 | 向量检索（Qdrant） | P0 | done | W4 | |
 | R-05 | 混合检索（向量+BM25） | P1 | draft | W4 | |
 | R-06 | Re-ranking（bge-reranker） | P1 | draft | W4 | |
-| R-07 | 元数据过滤（按域） | P0 | draft | W4 | |
+| R-07 | 元数据过滤（按域） | P0 | done | W4 | |
 | R-08 | 增量更新 | P1 | draft | W4 | |
-| R-09 | Context 注入 Agent | P0 | draft | W4 | |
+| R-09 | Context 注入 Agent | P0 | done | W4 | |
 
 ## Module 4: Web-IDE (`apps/web/`) — W6/W8
 
@@ -90,4 +90,4 @@
 - P0：38 个
 - P1：12 个
 - P2：2 个
-- 状态：draft 52 / ready 0 / in-progress 0 / done 0
+- 状态：draft 36 / done 16
